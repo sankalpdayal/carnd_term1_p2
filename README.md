@@ -1,6 +1,6 @@
-#**Traffic Sign Recognition** 
+# **Traffic Sign Recognition** 
 
-##Writeup Template
+## Writeup Template
 
 ---
 
@@ -29,13 +29,13 @@ The goals / steps of this project are the following:
 [image11]: ./examples/outputFeatureMap.png "Output Feature Map"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 Here is a link to my [project code](https://github.com/sankalpdayal/carnd_term1_p2/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Basic summary of the data set.
+#### 1. Basic summary of the data set.
 
 I used the numpy functions to calculate summary statistics of the traffic
 signs data set:
@@ -46,7 +46,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32) with 3 cahnnels RGB
 * The number of unique classes/labels in the data set is 43
 
-####2. Exploratory visualization of the dataset.
+#### 2. Exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data for each class is distrubuted
 
@@ -60,9 +60,9 @@ Following observations can be made about the data set.
 Classes are very unevenly distributed. Hence it will be a good idea to create more images for the classes which have less representation.
 Some of the images are dark. Hence it is a good idea to randomize brightess levels.
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Proprocessing of data 
+#### 1. Proprocessing of data 
 
 As a first step, I decided to convert the images to grayscale because LeNet on grascale shows promising results and it reduces the amount of computation during training.
 
@@ -83,7 +83,7 @@ Here is an example of a traffic sign image before and after grayscaling and an a
 
 Original training dataset size was 34799 which after adding more data became 51690. This gave increase of 1.4x
 
-####2. Final Model
+#### 2. Final Model
 
 My final model consisted of the following layers:
 
@@ -106,7 +106,7 @@ My final model consisted of the following layers:
 | Softmax				| 		       									| 
 
 
-####3. Training of model.
+#### 3. Training of model.
 
 To train the model, I cost function as softmax cross entropy and regularization on l2 loss of each layer weights. The values of my hyperparameters are as follows
 rate = 0.001
@@ -116,7 +116,7 @@ reg_weight =1e-3
 
 I trained for 50 epochs and used batch size of 128.
 
-####4. Approach to reach to the final model
+#### 4. Approach to reach to the final model
 
 My final model results were:
 * training set accuracy of 0.982
@@ -132,9 +132,9 @@ If an iterative approach was chosen:
 * To add more features in decision making I added features from previous layers as well before the fully connected layer. Also adde a droput after it to add regularization.
 * I had tune the regularization weight to get the validation accuracy above 0.93
 
-###Testing
+### Testing
 
-####1. Random 5 images from interent for german traffic signs 
+#### 1. Random 5 images from interent for german traffic signs 
 
 Here are five German traffic signs that I found on the web:
 
@@ -143,14 +143,14 @@ Here are five German traffic signs that I found on the web:
 
 The fifth image will be difficult to classify because I think that kind of image doesnt exist in the database.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 ![alt text][image10]
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 0.927
 
-####3.Certainity on each prediction
+#### 3.Certainity on each prediction
 
 The code for making predictions on my final model is located below the cell with title "Output Top 5 Softmax Probabilities For Each Image Found on the Web"
 
