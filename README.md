@@ -1,9 +1,5 @@
 # **Traffic Sign Recognition** 
 
-## Writeup Template
-
----
-
 **Aim of project is to build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -166,6 +162,6 @@ For the first 3 images, the model is relatively sure that this is a stop sign (p
 
 
 ### Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Yisual output of your trained network's feature maps
+#### 1. Yisual output of your trained network's feature maps
 I looked at the output of first conv layer to understand what features is the network looking at. Mostly it is trying to understand edges under different orientations. Here is the image showing the output.
-![alt text][image10]
+![alt text][image11]
