@@ -139,7 +139,7 @@ Here are five German traffic signs that I found on the web:
 
 The fifth image will be difficult to classify because I think that kind of image doesnt exist in the database.
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Model's predictions on random images
 
 Here are the results of the prediction:
 ![alt text][image10]
@@ -161,7 +161,7 @@ For the first 3 images, the model is relatively sure that this is a stop sign (p
 | .8				    | Speed limit (50 km/hr)   						|
 
 
-### Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Yisual output of your trained network's feature maps
+### Visualizing the Neural Network
+#### 1. Visual output of your trained network's feature maps
 I looked at the output of first conv layer to understand what features is the network looking at. Mostly it is trying to understand edges under different orientations. Here is the image showing the output.
 ![alt text][image11]
