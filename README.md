@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/visualization.png "Visualization"
-[image2]: ./examples/gray_newimg.jpg "Grayscaling"
+[image2]: ./examples/gray_newimg.png "Grayscaling and Random changes"
 [image4]: ./traffic-signs-images-web/ImageCropped1.png "Traffic Sign 1"
 [image5]: ./traffic-signs-images-web/ImageCropped2.png "Traffic Sign 2"
 [image6]: ./traffic-signs-images-web/ImageCropped3.png "Traffic Sign 3"
@@ -50,20 +50,18 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 A sample of how the traffic sign image looks is 
 
-![alt text][image4]
+![alt text][image9]
 
 Following observations can be made about the data set.
-Classes are very unevenly distributed. Hence it will be a good idea to create more images for the classes which have less representation.
-Some of the images are dark. Hence it is a good idea to randomize brightess levels.
+1. Classes are very unevenly distributed. Hence it will be a good idea to create more images for the classes which have less representation.
+2. Some of the images are dark. Hence it is a good idea to randomize brightess levels.
 
 ### Design and Test a Model Architecture
 
 #### 1. Proprocessing of data 
 
-As a first step, I decided to convert the images to grayscale because LeNet on grascale shows promising results and it reduces the amount of computation during training.
-
+As a first step, I decided to convert the images to grayscale because LeNet on grascale shows promising results and it reduces the amount of computation during training. 
 As a last step, I normalized the image data using the method (pixel - 128)/ 128 as now the values will range from -1 to 1.
-
 As it was observed that distribution of each class was not same, I decided to generate additional data. 
 
 To add more data to the the data set, I used the following techniques
@@ -71,8 +69,8 @@ To add more data to the the data set, I used the following techniques
 2. Translation
 3. Warping
 4. Changing Brightness
-I chose these techniques as they mimic taking photo of the sign with different lighting and orientations.
 
+I chose these techniques as they mimic taking photo of the sign with different lighting and orientations. 
 Here is an example of a traffic sign image before and after grayscaling and an augmented image:
 
 ![alt text][image2]
@@ -105,10 +103,10 @@ My final model consisted of the following layers:
 #### 3. Training of model.
 
 To train the model, I cost function as softmax cross entropy and regularization on l2 loss of each layer weights. The values of my hyperparameters are as follows
-rate = 0.001
-mu = 0
-sigma = 0.1
-reg_weight =1e-3
+* rate = 0.001
+* mu = 0
+* sigma = 0.1
+* reg_weight =1e-3
 
 I trained for 50 epochs and used batch size of 128.
 
@@ -119,14 +117,14 @@ My final model results were:
 * validation set accuracy of 0.950
 * test set accuracy of 0.927
 
-If an iterative approach was chosen:
+I took an iterative approach. Here are the steps that i took to get good accuracy:
 * I chose LeNet as the first model as it was easy to implement and already has shown promising results. 
 * The problem with this architecture was it was limited in accuracy on validation test. My guess is that the base model was not elaborate enought to identify all the features in the traffic sign images.
 * I adjusted the architecture by adding more convolutation layers with relu activation and max polling and fully connected layers. 
 * Adding more layers started increasing accuracy on training data but still accuracy was less on validation data. Hence i increased regularziation to reduce overfitting.
 * I added regularization as droput after fully connectded layer and l2 loss for all the weights of layers for the 
 * To add more features in decision making I added features from previous layers as well before the fully connected layer. Also adde a droput after it to add regularization.
-* I had tune the regularization weight to get the validation accuracy above 0.93
+* I had to tune the regularization weight to get the validation accuracy above 0.93
 
 ### Testing
 
@@ -149,7 +147,6 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 #### 3.Certainity on each prediction
 
 The code for making predictions on my final model is located below the cell with title "Output Top 5 Softmax Probabilities For Each Image Found on the Web"
-
 For the first 3 images, the model is relatively sure that this is a stop sign (probability of 0.9), and for others the confidence is low. First is also incorrect.
 
 | Probability         	|     Prediction	        					| 
